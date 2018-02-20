@@ -1,0 +1,52 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+.App {
+	background: #e4e4e4;
+	padding: 50px;
+	border: 2px solid #000;
+	width: 100vw;
+	height: calc( 100vw * 0.6 );
+	margin: 20px 0;
+}
+
+.label {
+	display: block;
+	font-size: 20px;
+}
+
+.game-object {
+	margin: 0 0 20px;
+}
+
+.enemy,
+.card {
+	background: #000;
+	padding: 10px;
+	display: inline-block;
+	color: #fff;
+	margin: 10px;
+}
+
+.card {
+	background: #0032a7;
+}
+
+.btn {
+	padding: 20px;
+	border: 1px solid #000;
+	display: inline-block;
+	margin: 10px 0;
+	border-radius: 10px;
+	cursor: pointer;
+
+	&:hover {
+		background: #000;
+		color: #fff;
+	}
+}
