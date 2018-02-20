@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 // Parts
 import Enemy from './components/parts/Enemy';
 import Card from './components/parts/Card';
+import Player from './components/parts/Player';
+import GameInfo from './components/parts/GameInfo';
 
 //Scenes
 import ClassPicker from './components/scenes/ClassPicker';
+import Combat from './components/scenes/Combat';
 
 class App extends Component {
   constructor(props){
@@ -35,25 +38,9 @@ class App extends Component {
 
 				return (
 				  <div className="App">
-					<div className="App-header">
-					  <h2>A card game</h2>
-					</div>
-					<div className="game-object"><span className="label">Game</span>
-						{this.state.gameData.game_id}
-					</div>
-					<div className="game-object"><span className="label">Enemies</span>
-						{this.state.enemies.map((enemy, index) =>
-						<Enemy key={index} stats={enemy} />
-					  )}
-					</div>
-					<div className="game-object"><span className="label">Hand</span>
-						{this.state.hand.map((card, index) =>
-						<Card key={index} gameId={this.state.gameId} stats={card} />
-					  )}
-					</div>
-					<div className="game-object">
-						<span onClick={ () => {window.fetchState( '/game/end_turn', this.state.gameId, [] ) } } className="btn">End turn</span>
-					</div>
+				  	<GameInfo data={this.state.gameData} />
+					<Combat data={this.state} />
+					<Player data={this.state.gameData} />
 				  </div>
 				);
 		  		break;

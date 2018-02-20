@@ -6,11 +6,20 @@ class Enemy extends Component {
   }
 
   render() {console.log( this );
+	  this.curses = '';
+	if( this.props.stats.curses ) {
+		this.curses = <div className="curses">
+			{this.props.stats.curses.map((curse, index) =>
+				<span key={index}>{curse.effect}</span>
+			)}
+		</div>
+	}
     return (
 		<div className="enemy">
 			<div>{this.props.stats.name}</div>
 			<div>Attack: {this.props.stats.attack}</div>
 			<div>Health: {this.props.stats.health}/{this.props.stats.max_health}</div>
+			{this.curses}
 		</div>
     );
   }
