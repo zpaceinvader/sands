@@ -5,19 +5,36 @@ class Model extends Component {
 		super(props);
 
 		this.state = {
-			currentCount: 1
+			currentCount: 1,
+			animation: 'idle',
+			model: ''
 	    }
 	}
 
 	componentDidMount() {
+		this.setState({ animation: this.props.animation });
+		this.setState({ model: this.props.model });
+
 		const self = this;
+
 		var intervalId = setInterval(function() {
 			let count = self.state.currentCount + 1;
-			if( count > 3 ) {
-				count = 1;
+			let maxCount = 3;
+			if( 'idle' == self.state.animation ) {
+				maxCount = 9;
+			}
+
+			if( count > maxCount ) {
+				if( 'dead' === self.state.animation ) {
+					clearInterval(self.state.intervalId);
+					return;
+				} else {
+					self.setState({ animation: 'idle' });
+					count = 1;
+				}
 			}
 			self.setState({ currentCount: count });
-		}, 800);
+		}, 200);
 		// store intervalId in the state so it can be accessed later:
 		this.setState({intervalId: intervalId});
 	}
@@ -28,10 +45,13 @@ class Model extends Component {
 	}
 
 	render() {
-	// You do not need to decrease the value here
+		const animation = this.state.animation;
+		const model = this.state.model;
+		const frame = this.state.currentCount;
+
 		return (
 			<section>
-				<img src={window.siteconfig.monsterAssets + "/wurm/idle/idle-" + this.state.currentCount + '.png'} />
+				<img src={window.siteconfig.monsterAssets + "/" + model + "/" + animation + "/" + frame + '.png'} />
 			</section>
 		);
 	}
