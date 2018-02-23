@@ -15,8 +15,7 @@ window.fetchState = function( endpoint, gameId, variables ) {
 			}
 		}
 	}
-
-	let restPath = 'http://sands.site/wp-json/cge' + endpoint + '/' + query;
+	let restPath = window.siteconfig.restUrl + '/cge' + endpoint + '/' + query;
 	console.log( restPath );
 	fetch( restPath )
 	  .then(res => res.json())

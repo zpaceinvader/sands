@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Model from './../parts/Model';
 
 class Enemy extends Component {
   constructor(props){
@@ -16,6 +17,7 @@ class Enemy extends Component {
 	}
     return (
 		<div className="enemy">
+			<Model model="wurm" />
 			<div className="name">{this.props.stats.name}</div>
 			<div>Attack: {this.props.stats.attack}</div>
 			<div>Health: {this.props.stats.health}/{this.props.stats.max_health}</div>

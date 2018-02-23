@@ -167,7 +167,15 @@ body {
 }
 
 .player {
-	background: blue;
+	background: grey;
+}
+
+.enemy {
+	img {
+		width: 100px;
+		height: auto;
+		margin-bottom: 10px;
+	}
 }
 
 .curses {

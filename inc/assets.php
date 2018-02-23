@@ -18,6 +18,14 @@ use Heisenberg;
 function scripts() {
 	wp_enqueue_script( 'planck-commons', Heisenberg\get_assets_uri( 'commons.js' ), [], null, true );
 	wp_enqueue_script( 'planck-main', Heisenberg\get_assets_uri( 'main.js' ), [ 'planck-commons' ], null, true );
+
+	wp_localize_script( 'planck-main', 'siteconfig', [
+		'debug' => SCRIPT_DEBUG || WP_DEBUG,
+		'images' => get_template_directory_uri() . '/dist/images/',
+		'monsterAssets' => get_template_directory_uri() . '/src/monsters/',
+		'restUrl' => home_url( 'wp-json' ),
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+	] );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\styles' );
 
