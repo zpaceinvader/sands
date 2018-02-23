@@ -47,7 +47,9 @@ class App extends Component {
 		  	default:
 				return (
 				  <div className="App">
+				  <div />
 					<ClassPicker app={this} gameData={this.state.gameData} />
+					<div />
 				  </div>
 				);
 		  }

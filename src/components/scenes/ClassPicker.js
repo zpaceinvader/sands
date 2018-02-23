@@ -17,17 +17,21 @@ class ClassPicker extends Component {
 		  this.gameId = this.props.gameData.game_data.game_id;
 
 		  return (
-	  		<div className="scene">
+	  		<div className="scene class-picker">
+			<div />
+			<div>
 				<div className="sceneDesc">
 					<h1>Pick a class!</h1>
 				</div>
+				<div className="picker-buttons">
 	  			{this.data.options.map((option, index) =>
-	  				<div key={index} >
-						<span onClick={ () => {window.fetchState( '/game/response', this.gameId, ['response=' + option.id] ) } } key={index} className="btn">
-							{option.name}
-						</span>
-					</div>
+					<span key={index} onClick={ () => {window.fetchState( '/game/response', this.gameId, ['response=' + option.id] ) } } key={index} className="btn">
+						{option.name}
+					</span>
 	  			)}
+				</div>
+				</div>
+				<div />
 	  		</div>
 	      );
 	  } else {

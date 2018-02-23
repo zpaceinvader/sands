@@ -8,7 +8,6 @@ class GameInfo extends Component {
   render() {console.log( this );
     return (
 		<div className="debug">
-			<h2>Debug</h2>
 			<div>
 				<span>Current state: <span>{this.props.data.current_state}</span></span>
 			</div>

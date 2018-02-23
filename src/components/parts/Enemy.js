@@ -16,7 +16,7 @@ class Enemy extends Component {
 	}
     return (
 		<div className="enemy">
-			<div>{this.props.stats.name}</div>
+			<div className="name">{this.props.stats.name}</div>
 			<div>Attack: {this.props.stats.attack}</div>
 			<div>Health: {this.props.stats.health}/{this.props.stats.max_health}</div>
 			{this.curses}

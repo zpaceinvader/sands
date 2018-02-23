@@ -1,29 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 * {
 	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
+	font-family: 'Press Start 2P', cursive;
+	color: #fff;
 }
 
 .App {
-	background: #e4e4e4;
-	border: 2px solid #000;
-	width: 100vw;
-	height: calc( 100vw * 0.6 );
-	margin: 20px 0;
+	background: #000;
+	width: 1400px;
+	height: calc( 1400px * 0.6 );
+	margin: 100px auto;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: space-between;
 }
 
 .scene {
 	padding: 20px;
+	text-align: center;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	width: 100%;
+
+	&.class-picker {
+		.btn {
+			margin: 5px 0;
+		}
+
+		.picker-buttons {
+			display: flex;
+			flex-direction: column;
+			max-width: 300px;
+			margin: 0 auto;
+		}
+	}
 }
 
 .label {
 	display: block;
 	font-size: 20px;
+	border-bottom: 2px solid #fff;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 .game-object {
@@ -33,27 +59,88 @@ body {
 .enemy,
 .card {
 	background: #000;
-	padding: 10px;
 	display: inline-block;
 	color: #fff;
 	margin: 10px;
+	width: 200px;
+	font-size: 14px;
+}
+
+.enemy {
+	.name {
+		font-size: 18px;
+		margin-bottom: 15px;
+	}
+}
+
+.card {
+	> div {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.name {
+		font-size: 20px;
+		margin-bottom: 10px;
+		background: green;
+		padding: 10px;
+	}
+
+	.desc {
+		padding-bottom: 10px;
+		margin-top: 15px;
+	}
 }
 
 .card {
 	background: #0032a7;
 }
 
+/* main button block */
 .btn {
-	padding: 20px;
-	border: 1px solid #000;
-	display: inline-block;
-	margin: 10px 0;
-	border-radius: 10px;
+    display:inline-block;
+    background: #fff;
+    position: relative;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 15px;
+    height: 50px;
+    margin-left: 0.5em;
 	cursor: pointer;
+	color: #000;
+	margin-bottom: 10px;
+}
 
-	&:hover {
-		background: #000;
-		color: #fff;
+/* common background color to all */
+.btn, .btn::before, .btn::after {
+    background-color: #fff;
+}
+
+/* shared styles to make left and right lines */
+.btn::before, .btn::after {
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 5px;
+    top: 5px;
+
+}
+
+/* pull the left 'line' out to the left */
+.btn::before {
+    left: -5px;
+}
+
+/* pull the right 'line' out to the right */
+.btn::after {
+    right: -5px;
+}
+
+.btn:hover {
+	background: #cacaca;
+
+	&::before, &::after {
+		background: #cacaca;
 	}
 }
 
@@ -65,6 +152,8 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 100%;
+	flex-shrink: 0;
 
 	h2 {
 		margin: 0;
@@ -72,6 +161,8 @@ body {
 
 	span span {
 		color: red;
+		margin-top: 10px;
+		display: block;
 	}
 }
 

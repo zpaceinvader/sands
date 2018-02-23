@@ -17,7 +17,7 @@ get_header();
 
 
 <pre>
-	Starte nytt spill:
+Starte nytt spill:
 /wp-json/cge/game/create
 
 Velge klasse:

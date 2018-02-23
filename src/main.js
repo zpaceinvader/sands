@@ -22,7 +22,7 @@ window.fetchState = function( endpoint, gameId, variables ) {
 	  .then(res => res.json())
 	  .then(state =>  {localStorage.setItem( 'gameId', state.game_data.game_id ); ReactDOM.render(<App gameData={state} />, document.getElementById('root'))});
 }
-
+window.fetchState( '/game/create' );
 const gameId = localStorage.getItem( 'gameId' );
 
 if ( gameId && gameId !== null ) {
