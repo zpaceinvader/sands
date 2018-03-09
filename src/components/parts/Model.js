@@ -20,7 +20,7 @@ class Model extends Component {
 		var intervalId = setInterval(function() {
 			let count = self.state.currentCount + 1;
 			let maxCount = 3;
-			if( 'idle' == self.state.animation ) {
+			if( 'idle' === self.state.animation ) {
 				maxCount = 9;
 			}
 

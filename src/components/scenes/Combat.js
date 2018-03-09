@@ -15,24 +15,22 @@ class Combat extends Component {
 }
 
   render() {
-	  console.log(this.props.data);
 	  if( this.props.data ) {
 		  this.state.enemies = this.props.data.enemies;
 		  this.state.hand = this.props.data.hand;
 		  this.state.gameId = this.props.data.gameId;
-
-		  console.log( this.state.enemies );
+			this.state.mana = this.props.data.gameData.game_data.player.mana;
 
 		  return (
 			  <div className="scene">
 				  <div className="game-object"><span className="label">Enemies</span>
 	  				{this.state.enemies.map((enemy, index) =>
-	  				<Enemy key={index} stats={enemy} />
+	  				<Enemy key={enemy.target} gameId={this.state.gameId} stats={enemy} />
 	  			  )}
 	  			</div>
 	  			<div className="game-object"><span className="label">Hand</span>
 	  				{this.state.hand.map((card, index) =>
-	  				<Card key={index} gameId={this.state.gameId} stats={card} />
+	  				<Card key={card.number} gameId={this.state.gameId} mana={this.state.mana} stats={card} />
 	  			  )}
 	  			</div>
 	  			<div className="game-object">

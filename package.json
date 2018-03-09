@@ -1,7 +1,7 @@
 {
   "name": "planck",
   "version": "1.0.0",
-  "proxy": "http://sands.site",
+  "proxy": "http://sands.local",
   "private": true,
   "entry": {
     "main": [

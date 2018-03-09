@@ -6,7 +6,12 @@ class Enemy extends Component {
     super(props);
   }
 
-  render() {console.log( this );
+	setTarget() {
+		window.fetchState( '/game/play_card', this.props.gameId, ['card=' + window.targeting, 'target=' + this.props.stats.target ] );
+		window.targeting = false;
+	}
+
+  render() {
 	  this.curses = '';
 	if( this.props.stats.curses ) {
 		this.curses = <div className="curses">
@@ -16,7 +21,7 @@ class Enemy extends Component {
 		</div>
 	}
     return (
-		<div className="enemy">
+		<div className="enemy" onClick={ () => { if( window.targeting ) this.setTarget() } }>
 			<Model animation="idle" model="wurm" />
 			<div className="name">{this.props.stats.name}</div>
 			<div>Attack: {this.props.stats.attack}</div>
