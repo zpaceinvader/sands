@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
+import Model from './../parts/Model';
 
 class Player extends Component {
   constructor(props){
     super(props);
+
+	this.state = {
+		player: null
+	}
   }
 
   render() {
-	this.player = this.props.data.game_data.player;
-	console.log(this.player);
+	this.state.player = this.props.gameData.game_data.player;
+
     return (
-		<div className="player">
-			<span>Health: <span>{this.player.health}/{this.player.max_health}</span></span>
-			<span>Mana: <span>{this.player.mana}</span></span>
-			<span>Cards in drawpile: <span>{this.player.draw_pile.count}</span></span>
-			<span>Cards in discard pile: <span>{this.player.discard_pile.count}</span></span>
-			<span onClick={ () => {window.fetchState( '/game/create' ) } } className="btn">New game</span>
+		<div className="player-model">
+			<Model animation="idle" model="nomad" />
+			<div>Health: {this.state.player.health}/{this.state.player.max_health}</div>
 		</div>
     );
   }

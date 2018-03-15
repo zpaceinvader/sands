@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // Parts
 import Enemy from './components/parts/Enemy';
 import Card from './components/parts/Card';
-import Player from './components/parts/Player';
+import Stats from './components/parts/Stats';
 import GameInfo from './components/parts/GameInfo';
 
 //Scenes
@@ -42,7 +42,7 @@ class App extends Component {
 					  <div className="App">
 					  	<GameInfo data={this.state.gameData} />
 						<Combat data={this.state} />
-						<Player data={this.state.gameData} />
+						<Stats data={this.state.gameData} />
 					  </div>
 					);
 		  		break;
