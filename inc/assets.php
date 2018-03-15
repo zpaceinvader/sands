@@ -22,7 +22,7 @@ function scripts() {
 	wp_localize_script( 'planck-main', 'siteconfig', [
 		'debug' => SCRIPT_DEBUG || WP_DEBUG,
 		'images' => get_template_directory_uri() . '/dist/images/',
-		'monsterAssets' => get_template_directory_uri() . '/src/monsters/',
+		'characterAssets' => get_template_directory_uri() . '/src/characters/',
 		'restUrl' => home_url( 'wp-json' ),
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 	] );

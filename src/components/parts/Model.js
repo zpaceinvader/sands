@@ -7,8 +7,24 @@ class Model extends Component {
 		this.state = {
 			currentCount: 1,
 			animation: 'idle',
-			model: ''
+			model: '',
+			animationFrames: 0,
 	    }
+
+		this.animations = {
+			wurm: {
+				idle : {
+					frames: 3,
+					framerate: 500
+				}
+			},
+			nomad: {
+				idle : {
+					frames: 1,
+					framerate: 200
+				}
+			}
+		}
 	}
 
 	componentDidMount() {
@@ -16,13 +32,11 @@ class Model extends Component {
 		this.setState({ model: this.props.model });
 
 		const self = this;
+		const frames = this.animations[ this.props.model ][ this.props.animation ];
 
 		var intervalId = setInterval(function() {
 			let count = self.state.currentCount + 1;
-			let maxCount = 3;
-			if( 'idle' === self.state.animation ) {
-				maxCount = 9;
-			}
+			let maxCount = frames.frames;
 
 			if( count > maxCount ) {
 				if( 'dead' === self.state.animation ) {
@@ -34,7 +48,7 @@ class Model extends Component {
 				}
 			}
 			self.setState({ currentCount: count });
-		}, 200);
+		}, frames.framerate);
 		// store intervalId in the state so it can be accessed later:
 		this.setState({intervalId: intervalId});
 	}
@@ -51,7 +65,7 @@ class Model extends Component {
 
 		return (
 			<section>
-				<img src={window.siteconfig.monsterAssets + "/" + model + "/" + animation + "/" + frame + '.png'} />
+				<img src={window.siteconfig.characterAssets + "/" + model + "/" + animation + "/" + frame + '.png'} />
 			</section>
 		);
 	}
